@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vishva | Video Editor & Motion Graphics Designer</title>
+
+    <meta name="description"
+        content="Portfolio of Vishva — Video Editor & Motion Graphics Designer specializing in video editing, motion graphics, sound design and visual effects.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080808;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img,
+        video {
+            max-width: 100%;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 20px 7%;
+
+            background: rgba(8, 8, 8, 0.85);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            color: #aaa;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+
+            padding: 140px 7% 80px;
+
+            background:
+                radial-gradient(
+                    circle at 80% 30%,
+                    rgba(255,255,255,0.08),
+                    transparent 35%
+                );
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .eyebrow {
+            color: #aaa;
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(50px, 8vw, 105px);
+            line-height: 0.95;
+            letter-spacing: -5px;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 span {
+            color: #888;
+        }
+
+        .hero p {
+            max-width: 650px;
+            color: #aaa;
+            font-size: 18px;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 14px 25px;
+
+            border: 1px solid #fff;
+            border-radius: 100px;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        .btn.primary {
+            background: #fff;
+            color: #000;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           GENERAL
+        ========================= */
+
+        section {
+            padding: 120px 7%;
+        }
+
+        .section-heading {
+            margin-bottom: 55px;
+        }
+
+        .section-number {
+            color: #666;
+            font-size: 13px;
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(40px, 6vw, 70px);
+            letter-spacing: -3px;
+        }
+
+        .section-heading p {
+            max-width: 600px;
+            color: #888;
+            margin-top: 15px;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            border-top: 1px solid #181818;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+        }
+
+        .about-text {
+            font-size: 22px;
+            color: #bbb;
+        }
+
+        .about-text strong {
+            color: #fff;
+        }
+
+        .about-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .info-card {
+            border: 1px solid #202020;
+            border-radius: 18px;
+            padding: 25px;
+            background: #0d0d0d;
+        }
+
+        .info-card h3 {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+
+        .info-card p {
+            color: #ddd;
+        }
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills {
+            background: #0c0c0c;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .skill {
+            padding: 30px 20px;
+            border: 1px solid #202020;
+            border-radius: 18px;
+            background: #101010;
+
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-6px);
+            border-color: #444;
+        }
+
+        .skill h3 {
+            font-size: 17px;
+        }
+
+        /* =========================
+           VIDEO PORTFOLIO
+        ========================= */
+
+        .portfolio {
+            background: #080808;
+        }
+
+        .featured-video {
+            position: relative;
+            margin-bottom: 60px;
+            border-radius: 25px;
+            overflow: hidden;
+            background: #111;
+            border: 1px solid #222;
+        }
+
+        .featured-video video {
+            width: 100%;
+            display: block;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+        }
+
+        .featured-info {
+            padding: 25px;
+        }
+
+        .featured-info h3 {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+
+        .featured-info p {
+            color: #888;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .video-card {
+            background: #101010;
+            border: 1px solid #202020;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-8px);
+            border-color: #444;
+        }
+
+        .video-preview {
+            position: relative;
+            background: #151515;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+        }
+
+        .video-preview video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .play-button {
+            position: absolute;
+
+            left: 50%;
+            top: 50%;
+
+            transform: translate(-50%, -50%);
+
+            width: 55px;
+            height: 55px;
+
+            border-radius: 50%;
+            background: rgba(255,255,255,0.92);
+            color: #000;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 18px;
+
+            pointer-events: none;
+
+            transition: 0.3s;
+        }
+
+        .video-card:hover .play-button {
+            transform: translate(-50%, -50%) scale(1.12);
+        }
+
+        .video-info {
+            padding: 20px;
+        }
+
+        .video-info span {
+            color: #666;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .video-info h3 {
+            font-size: 19px;
+            margin-top: 7px;
+        }
+
+        /* =========================
+           PROCESS
+        ========================= */
+
+        .process {
+            background: #0c0c0c;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .process-card {
+            padding: 30px;
+            background: #101010;
+            border: 1px solid #202020;
+            border-radius: 20px;
+        }
+
+        .process-card .number {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 35px;
+        }
+
+        .process-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .process-card p {
+            color: #888;
+            font-size: 14px;
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+            text-align: center;
+            min-height: 70vh;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact h2 {
+            font-size: clamp(50px, 8vw, 100px);
+            line-height: 0.95;
+            letter-spacing: -5px;
+            margin-bottom: 30px;
+        }
+
+        .contact p {
+            color: #888;
+            margin-bottom: 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: #aaa;
+            transition: 0.3s;
+        }
+
+        .contact-links a:hover {
+            color: #fff;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            border-top: 1px solid #181818;
+            padding: 30px 7%;
+
+            display: flex;
+            justify-content: space-between;
+
+            color: #555;
+            font-size: 13px;
+        }
+
+        /* =========================
+           MODAL
+        ========================= */
+
+        .modal {
+            position: fixed;
+            inset: 0;
+
+            background: rgba(0,0,0,0.94);
+
+            display: none;
+            align-items: center;
+            justify-content: center;
+
+            z-index: 2000;
+
+            padding: 30px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            width: min(1100px, 100%);
+            position: relative;
+        }
+
+        .modal video {
+            width: 100%;
+            max-height: 80vh;
+            display: block;
+            background: #000;
+            border-radius: 12px;
+        }
+
+        .close-modal {
+            position: absolute;
+
+            right: 0;
+            top: -50px;
+
+            width: 40px;
+            height: 40px;
+
+            border-radius: 50%;
+            border: 1px solid #555;
+
+            background: #111;
+            color: #fff;
+
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .modal-title {
+            margin-top: 15px;
+            font-size: 20px;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .video-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            section {
+                padding: 80px 5%;
+            }
+
+            nav {
+                padding: 18px 5%;
+            }
+
+            .hero {
+                padding: 130px 5% 70px;
+            }
+
+            .hero h1 {
+                letter-spacing: -3px;
+            }
+
+            .about-info {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid,
+            .process-grid,
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav>
+    <a href="#home" class="logo">VISHVA.</a>
+
+    <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            Video Editor • Motion Graphics Designer
+        </div>
+
+        <h1>
+            I EDIT<br>
+            <span>STORIES.</span>
+        </h1>
+
+        <p>
+            I create engaging videos through editing, motion graphics,
+            sound design, visual effects and creative storytelling.
+        </p>
+
+        <div class="buttons">
+
+            <a href="#work" class="btn primary">
+                View My Work
+            </a>
+
+            <a href="resume/resume.pdf"
+               class="btn"
+               target="_blank">
+                View Resume
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="about" id="about">
+
+    <div class="section-heading">
+
+        <div class="section-number">
+            01 — ABOUT
+        </div>
+
+        <h2>Who I Am</h2>
+
+    </div>
+
+    <div class="about-grid">
+
+        <div class="about-text">
+
+            <p>
+                I'm a <strong>Video Editor & Motion Graphics Designer</strong>
+                focused on turning raw footage and ideas into polished,
+                engaging visual content.
+            </p>
+
+            <br>
+
+            <p>
+                I enjoy working with pacing, storytelling, typography,
+                sound design, motion graphics and visual effects to make
+                every video more engaging.
+            </p>
+
+        </div>
+
+
+        <div class="about-info">
+
+            <div class="info-card">
+                <h3>Experience</h3>
+                <p>1+ Year</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Education</h3>
+                <p>B.Com Computer Applications</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Location</h3>
+                <p>Tamil Nadu, India</p>
+            </div>
+
+            <div class="info-card">
+                <h3>Availability</h3>
+                <p>Open to Opportunities</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SKILLS
+========================= -->
+
+<section class="skills" id="skills">
+
+    <div class="section-heading">
+
+        <div class="section-number">
+            02 — SKILLS
+        </div>
+
+        <h2>What I Do</h2>
+
+    </div>
+
+
+    <div class="skills-grid">
+
+        <div class="skill">
+            <h3>Video Editing</h3>
+        </div>
+
+        <div class="skill">
+            <h3>Motion Graphics</h3>
+        </div>
+
+        <div class="skill">
+            <h3>Short-form Content</h3>
+        </div>
+
+        <div class="skill">
+            <h3>YouTube Editing</h3>
+        </div>
+
+        <div class="skill">
+            <h3>Sound Design</h3>
+        </div>
+
+        <div class="skill">
+            <h3>Visual Effects</h3>
+        </div>
+
+        <div class="skill">
+            <h3>Typography</h3>
+        </div>
+
+        <div class="skill">
+            <h3>Visual Storytelling</h3>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PORTFOLIO
+========================= -->
+
+<section class="portfolio" id="work">
+
+    <div class="section-heading">
+
+        <div class="section-number">
+            03 — SELECTED WORK
+        </div>
+
+        <h2>My Work</h2>
+
+        <p>
+            A selection of my video editing, motion graphics,
+            sound design and visual effects work.
+        </p>
+
+    </div>
+
+
+    <!-- FEATURED VIDEO -->
+
+    <div class="featured-video">
+
+        <video
+            controls
+            preload="metadata"
+            playsinline>
+
+            <source
+                src="videos/game-trailer.mp4"
+                type="video/mp4">
+
+            Your browser does not support video playback.
+
+        </video>
+
+        <div class="featured-info">
+
+            <h3>Game Trailer</h3>
+
+            <p>
+                Video Editing • Gaming Content
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- VIDEO GRID -->
+
+    <div class="video-grid">
+
+
+        <!-- 01 -->
+
+        <div class="video-card"
+             data-video="videos/rain-sound-design.mp4"
+             data-title="Rain Sound Design">
+
+            <div class="video-preview">
+
+                <video
+                    preload="metadata"
+                    muted
+                    playsinline>
+
+                    <source
+                        src="videos/rain-sound-design.mp4"
+                        type="video/mp4">
+
+                </video>
+
+                <div class="play-button">
+                    ▶
+                </div>
+
+            </div>
+
+            <div class="video-info">
+
+                <span>Sound Design</span>
+
+                <h3>Rain Sound Design</h3>
+
+            </div>
+
+        </div>
+
+
+        <!-- 02 -->
+
+        <div class="video-card"
+             data-video="videos/social-media-reel.mp4"
+             data-title="Social Media Reel">
+
+            <div class="video-preview">
+
+                <video
+                    preload="metadata"
+                    muted
+                    playsinline>
+
+                    <source
+                        src="videos/social-media-reel.mp4"
+                        type="video/mp4">
+
+                </video>
+
+                <div class="play-button">
+                    ▶
+                </div>
+
+            </div>
+
+            <div class="video-info">
+
+                <span>Short-form Editing</span>
+
+                <h3>Social Media Reel</h3>
+
+            </div>
+
+        </div>
+
+
+        <!-- 03 -->
+
+        <div class="video-card"
+             data-video="videos/motion-tracking.mp4"
+             data-title="Motion Tracking">
+
+            <div class="video-preview">
+
+                <video
+                    preload="metadata"
+                    muted
+                    playsinline>
+
+                    <source
+                        src="videos/motion-tracking.mp4"
+                        type="video/mp4">
+
+                </video>
+
+                <div class="play-button">
+                    ▶
+                </div>
+
+            </div>
+
+            <div class="video-info">
+
+                <span>Motion Graphics</span>
+
+                <h3>Motion Tracking</h3>
+
+            </div>
+
+        </div>
+
+
+        <!-- 04 -->
+
+        <div class="video-card"
+             data-video="videos/green-screen.mp4"
+             data-title="Green Screen">
+
+            <div class="video-preview">
+
+                <video
+                    preload="metadata"
+                    muted
+                    playsinline>
+
+                    <source
+                        src="videos/green-screen.mp4"
+                        type="video/mp4">
+
+                </video>
+
+                <div class="play-button">
+                    ▶
+                </div>
+
+            </div>
+
+            <div class="video-info">
+
+                <span>VFX</span>
+
+                <h3>Green Screen</h3>
+
+            </div>
+
+        </div>
+
+
+        <!-- 05 -->
+
+        <div class="video-card"
+             data-video="videos/forest-sound-design.mp4"
+             data-title="Forest Sound Design">
+
+            <div class="video-preview">
+
+                <video
+                    preload="metadata"
+                    muted
+                    playsinline>
+
+                    <source
+                        src="videos/forest-sound-design.mp4"
+                        type="video/mp4">
+
+                </video>
+
+                <div class="play-button">
+                    ▶
+                </div>
+
+            </div>
+
+            <div class="video-info">
+
+                <span>Sound Design</span>
+
+                <h3>Forest Sound Design</h3>
+
+            </div>
+
+        </div>
+
+
+        <!-- 06 -->
+
+        <div class="video-card"
+             data-video="videos/waterfall-sound-design.mp4"
+             data-title="Waterfall Sound Design">
+
+            <div class="video-preview">
+
+                <video
+                    preload="metadata"
+                    muted
+                    playsinline>
+
+                    <source
+                        src="videos/waterfall-sound-design.mp4"
+                        type="video/mp4">
+
+                </video>
+
+                <div class="play-button">
+                    ▶
+                </div>
+
+            </div>
+
+            <div class="video-info">
+
+                <span>Sound Design</span>
+
+                <h3>Waterfall Sound Design</h3>
+
+            </div>
+
+        </div>
+
+
+        <!-- 07 -->
+
+        <div class="video-card"
+             data-video="videos/line-animation.mp4"
+             data-title="Line Animation">
+
+            <div class="video-preview">
+
+                <video
+                    preload="metadata"
+                    muted
+                    playsinline>
+
+                    <source
+                        src="videos/line-animation.mp4"
+                        type="video/mp4">
+
+                </video>
+
+                <div class="play-button">
+                    ▶
+                </div>
+
+            </div>
+
+            <div class="video-info">
+
+                <span>Motion Graphics</span>
+
+                <h3>Line Animation</h3>
+
+            </div>
+
+        </div>
+
+
+        <!-- 08 -->
+
+        <div class="video-card"
+             data-video="videos/logo-animation.mp4"
+             data-title="Logo Animation">
+
+            <div class="video-preview">
+
+                <video
+                    preload="metadata"
+                    muted
+                    playsinline>
+
+                    <source
+                        src="videos/logo-animation.mp4"
+                        type="video/mp4">
+
+                </video>
+
+                <div class="play-button">
+                    ▶
+                </div>
+
+            </div>
+
+            <div class="video-info">
+
+                <span>Motion Graphics</span>
+
+                <h3>Logo Animation</h3>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PROCESS
+========================= -->
+
+<section class="process" id="process">
+
+    <div class="section-heading">
+
+        <div class="section-number">
+            04 — PROCESS
+        </div>
+
+        <h2>How I Work</h2>
+
+    </div>
+
+
+    <div class="process-grid">
+
+        <div class="process-card">
+
+            <div class="number">01</div>
+
+            <h3>Understand</h3>
+
+            <p>
+                Understand the goal, audience and message
+                before starting the edit.
+            </p>
+
+        </div>
+
+
+        <div class="process-card">
+
+            <div class="number">02</div>
+
+            <h3>Edit</h3>
+
+            <p>
+                Build the structure, pacing, cuts and
+                storytelling.
+            </p>
+
+        </div>
+
+
+        <div class="process-card">
+
+            <div class="number">03</div>
+
+            <h3>Enhance</h3>
+
+            <p>
+                Add motion graphics, typography,
+                sound and visual effects.
+            </p>
+
+        </div>
+
+
+        <div class="process-card">
+
+            <div class="number">04</div>
+
+            <h3>Deliver</h3>
+
+            <p>
+                Export a clean, polished and
+                platform-ready final video.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section class="contact" id="contact">
+
+    <div class="section-number">
+        05 — CONTACT
+    </div>
+
+    <h2>
+        LET'S CREATE<br>
+        SOMETHING GREAT.
+    </h2>
+
+    <p>
+        Interested in working together? Let's talk.
+    </p>
+
+    <div class="buttons">
+
+        <a
+            href="mailto:YOUR_r2kvishva@gmail.com"
+            class="btn primary">
+
+            Email Me
+
+        </a>
+
+    </div>
+
+    <br>
+
+    <div class="contact-links">
+
+        <a
+            href="https://www.linkedin.com/"
+            target="_blank">
+
+            LinkedIn
+
+        </a>
+
+        <span>•</span>
+
+        <a
+            href="mailto:YOUR_r2kvishva@gmail.com">
+
+            YOUR_r2kvishva@gmail.com
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div>
+        Vishva — Video Editor & Motion Graphics Designer
+    </div>
+
+    <div>
+        © 2026 Vishva
+    </div>
+
+</footer>
+
+
+<!-- =========================
+     VIDEO MODAL
+========================= -->
+
+<div class="modal" id="videoModal">
+
+    <div class="modal-content">
+
+        <button
+            class="close-modal"
+            id="closeModal">
+
+            ×
+
+        </button>
+
+        <video
+            id="modalVideo"
+            controls
+            playsinline>
+
+        </video>
+
+        <div
+            class="modal-title"
+            id="modalTitle">
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+    const videoCards =
+        document.querySelectorAll(".video-card");
+
+    const modal =
+        document.getElementById("videoModal");
+
+    const modalVideo =
+        document.getElementById("modalVideo");
+
+    const modalTitle =
+        document.getElementById("modalTitle");
+
+    const closeModal =
+        document.getElementById("closeModal");
+
+
+    /* Open video */
+
+    videoCards.forEach(card => {
+
+        card.addEventListener("click", () => {
+
+            const video =
+                card.dataset.video;
+
+            const title =
+                card.dataset.title;
+
+            modalVideo.src = video;
+
+            modalTitle.textContent = title;
+
+            modal.classList.add("active");
+
+            modalVideo.play().catch(() => {});
+
+        });
+
+    });
+
+
+    /* Close modal */
+
+    function closeVideo() {
+
+        modalVideo.pause();
+
+        modalVideo.currentTime = 0;
+
+        modalVideo.removeAttribute("src");
+
+        modalVideo.load();
+
+        modal.classList.remove("active");
+
+    }
+
+
+    closeModal.addEventListener(
+        "click",
+        closeVideo
+    );
+
+
+    /* Close when clicking outside */
+
+    modal.addEventListener("click", event => {
+
+        if (event.target === modal) {
+
+            closeVideo();
+
+        }
+
+    });
+
+
+    /* Escape key */
+
+    document.addEventListener("keydown", event => {
+
+        if (event.key === "Escape") {
+
+            closeVideo();
+
+        }
+
+    });
+
+</script>
+
+</body>
+</html>
